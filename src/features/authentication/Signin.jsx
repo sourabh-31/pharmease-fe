@@ -31,7 +31,7 @@ function Signin() {
     });
   }
 
-  function onError(errors) {}
+  function onError() {}
 
   function handlePasswordVisible() {
     setPasswordVisible((visible) => !visible);

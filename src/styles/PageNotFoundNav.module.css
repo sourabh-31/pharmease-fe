@@ -1,7 +1,0 @@
-.closeBtn img {
-  transition: transform 0.3s ease, scale 0.3s ease;
-}
-
-.closeBtn:hover img {
-  transform: rotate(-90deg) scale(1.1);
-}

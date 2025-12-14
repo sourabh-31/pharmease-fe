@@ -41,9 +41,6 @@ const queryClient = new QueryClient({
 function App() {
   const { isAuthenticated } = useAuthContext();
 
-  console.log("Auth Status:", isAuthenticated);
-  console.log("Auth Status (type):", typeof isAuthenticated);
-
   const { isStatVisible, isNotificationVisible } = useReportContext();
 
   return (
@@ -103,29 +100,27 @@ function App() {
                   )
                 }
               />
-              {isAuthenticated && (
-                <Route
-                  element={
-                    <ProtectedRoute>
-                      <AppLayout />
-                    </ProtectedRoute>
-                  }
-                >
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/inventory" element={<Inventory />}>
-                    <Route path="medicines" element={<MedicineTable />} />
-                    <Route path="groups" element={<GroupsTable />} />
-                    <Route path="groups/:group" element={<GroupDetail />} />
-                    <Route path="expired" element={<ExpiredTable />} />
-                  </Route>
-                  <Route path="/reports" element={<Reports />} />
-                  <Route path="/invoice" element={<Invoice />} />
-                  <Route path="/manage-customer" element={<Customers />} />
-                  <Route path="/notifications" element={<Notifications />} />
-                  <Route path="/help" element={<Help />} />
-                  <Route path="/profile" element={<Profile />} />
+              <Route
+                element={
+                  <ProtectedRoute>
+                    <AppLayout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/inventory" element={<Inventory />}>
+                  <Route path="medicines" element={<MedicineTable />} />
+                  <Route path="groups" element={<GroupsTable />} />
+                  <Route path="groups/:group" element={<GroupDetail />} />
+                  <Route path="expired" element={<ExpiredTable />} />
                 </Route>
-              )}
+                <Route path="/reports" element={<Reports />} />
+                <Route path="/invoice" element={<Invoice />} />
+                <Route path="/manage-customer" element={<Customers />} />
+                <Route path="/notifications" element={<Notifications />} />
+                <Route path="/help" element={<Help />} />
+                <Route path="/profile" element={<Profile />} />
+              </Route>
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </BrowserRouter>

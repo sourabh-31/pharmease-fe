@@ -101,7 +101,7 @@ function App() {
                 }
               />
               {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-              <Route element={<AppLayout />}>
+              <Route path="/private" element={<AppLayout />}>
                 <Route index element={<Dashboard />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/inventory" element={<Inventory />}>

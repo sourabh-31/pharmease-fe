@@ -203,9 +203,11 @@ function InvoiceTable() {
           )}
         </div>
 
-        <Button bgColor="#f0483e" type="button" onClick={handleRemoveClicked}>
-          Remove Medicines
-        </Button>
+        {medicinesList.length > 0 && (
+          <Button bgColor="#f0483e" type="button" onClick={handleRemoveClicked}>
+            Remove Medicines
+          </Button>
+        )}
       </div>
       <Table column="2fr 0.8fr 1.2fr 1fr 0.8fr 0.8fr 0.8fr 1.4fr">
         <Table.Header>

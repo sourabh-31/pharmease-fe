@@ -3,6 +3,7 @@ import TrashIcon from "../../data/inventory-assets/trash.svg";
 
 import Button from "../../ui/Button";
 import Search from "../../ui/Search";
+import { useCustomers } from "./useCustomerAction";
 
 function CustomerHeader() {
   const {
@@ -11,6 +12,8 @@ function CustomerHeader() {
     customerSearch,
     setCustomerSearch,
   } = useInvoiceContext();
+
+  const { customers } = useCustomers();
 
   return (
     <div className="flex items-center justify-between mr-1 mt-6 mb-10">
@@ -24,16 +27,18 @@ function CustomerHeader() {
         />
       </div>
 
-      <div className="-mt-1">
-        <Button
-          bgColor={isCustomerDeleteClicked ? "#03a9f5" : "#f0483e"}
-          img={isCustomerDeleteClicked ? "" : TrashIcon}
-          imgWidth="1.1rem"
-          onClick={toggleCustomerDelete}
-        >
-          {isCustomerDeleteClicked ? "Cancel Delete" : "Delete Customer"}
-        </Button>
-      </div>
+      {customers?.length > 0 && (
+        <div className="-mt-1">
+          <Button
+            bgColor={isCustomerDeleteClicked ? "#03a9f5" : "#f0483e"}
+            img={isCustomerDeleteClicked ? "" : TrashIcon}
+            imgWidth="1.1rem"
+            onClick={toggleCustomerDelete}
+          >
+            {isCustomerDeleteClicked ? "Cancel Delete" : "Delete Customer"}
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

@@ -5,9 +5,12 @@ import Heading from "../ui/Heading";
 import SubHeading from "../ui/SubHeading";
 import TrashIcon from "../data/inventory-assets/trash.svg";
 import { useReportContext } from "../context/ReportContext";
+import { useInvoices } from "../features/invoice/useInvoiceAction";
 
 function Reports() {
   const { setDeleteClicked, deleteClicked } = useReportContext();
+
+  const { invoices } = useInvoices();
 
   function handleDeleteClicked() {
     setDeleteClicked((click) => !click);
@@ -20,14 +23,16 @@ function Reports() {
           <Heading>Reports</Heading>
           <SubHeading>Sales related report of the pharmacy.</SubHeading>
         </div>
-        <Button
-          bgColor={deleteClicked ? "#03a9f5" : "#f0483e"}
-          img={!deleteClicked && TrashIcon}
-          imgWidth="1.1rem"
-          onClick={handleDeleteClicked}
-        >
-          {deleteClicked ? "Cancel Delete" : "Delete Report"}
-        </Button>
+        {invoices?.length > 0 && (
+          <Button
+            bgColor={deleteClicked ? "#03a9f5" : "#f0483e"}
+            img={!deleteClicked && TrashIcon}
+            imgWidth="1.1rem"
+            onClick={handleDeleteClicked}
+          >
+            {deleteClicked ? "Cancel Delete" : "Delete Report"}
+          </Button>
+        )}
       </div>
       <ReportsHeader />
       <ReportsTable />

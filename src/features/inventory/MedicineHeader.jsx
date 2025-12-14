@@ -4,10 +4,14 @@ import TrashIcon from "../../data/inventory-assets/trash.svg";
 import Button from "../../ui/Button";
 import Search from "../../ui/Search";
 import SelectGroup from "./SelectGroup";
+import { useMedicines } from "./useMedicineAction";
 
 function MedicineHeader() {
   const { toggleDelete, isDeleteClicked, medicineSearch, setMedicineSearch } =
     useMedicineContext();
+
+  const { medicines } = useMedicines();
+  const medicineLength = medicines?.length;
 
   return (
     <div className="flex items-center justify-between mr-1 mt-6 mb-10">
@@ -21,16 +25,18 @@ function MedicineHeader() {
         />
       </div>
       <SelectGroup />
-      <div className="-mt-1">
-        <Button
-          bgColor={isDeleteClicked ? "#03a9f5" : "#f0483e"}
-          img={isDeleteClicked ? "" : TrashIcon}
-          imgWidth="1.1rem"
-          onClick={toggleDelete}
-        >
-          {isDeleteClicked ? "Cancel Delete" : "Delete Item"}
-        </Button>
-      </div>
+      {medicineLength > 0 && (
+        <div className="-mt-1">
+          <Button
+            bgColor={isDeleteClicked ? "#03a9f5" : "#f0483e"}
+            img={isDeleteClicked ? "" : TrashIcon}
+            imgWidth="1.1rem"
+            onClick={toggleDelete}
+          >
+            {isDeleteClicked ? "Cancel Delete" : "Delete Item"}
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

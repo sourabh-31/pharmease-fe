@@ -109,7 +109,7 @@ function MainNav() {
           </NavLink>
         </li>
         <Border />
-        <li className="mt-6">
+        <li className="my-6">
           <button
             className="flex items-center gap-4 ml-10"
             onClick={handleStatVisible}

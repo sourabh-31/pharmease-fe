@@ -347,22 +347,6 @@ function AddCustomerForm() {
             >
               <p className="font-medium">Save</p>
             </Button>
-            <Button
-              bgColor="#e5f2ef"
-              textColor="#000"
-              disabled={isCreating}
-              type="button"
-            >
-              <p className="font-medium">Save & Print</p>
-            </Button>
-            <Button
-              bgColor="#e5f2ef"
-              textColor="#000"
-              disabled={isCreating}
-              type="button"
-            >
-              <p className="font-medium">Print</p>
-            </Button>
           </div>
         </section>
       </form>

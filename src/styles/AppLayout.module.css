@@ -2,4 +2,10 @@
   display: grid;
   grid-template-columns: 22rem 1fr;
   grid-template-rows: auto 1fr;
+  height: 100vh;
+}
+
+.appLayout main {
+  overflow-y: auto;
+  height: 100%;
 }

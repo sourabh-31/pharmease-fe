@@ -100,23 +100,30 @@ function App() {
                   )
                 }
               />
-              <Route element={<AppLayout />}>
-                <Route index element={<Dashboard />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/inventory" element={<Inventory />}>
-                  <Route path="medicines" element={<MedicineTable />} />
-                  <Route path="groups" element={<GroupsTable />} />
-                  <Route path="groups/:group" element={<GroupDetail />} />
-                  <Route path="expired" element={<ExpiredTable />} />
+              {isAuthenticated && (
+                <Route
+                  element={
+                    <ProtectedRoute>
+                      <AppLayout />
+                    </ProtectedRoute>
+                  }
+                >
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/inventory" element={<Inventory />}>
+                    <Route path="medicines" element={<MedicineTable />} />
+                    <Route path="groups" element={<GroupsTable />} />
+                    <Route path="groups/:group" element={<GroupDetail />} />
+                    <Route path="expired" element={<ExpiredTable />} />
+                  </Route>
+                  <Route path="/reports" element={<Reports />} />
+                  <Route path="/invoice" element={<Invoice />} />
+                  <Route path="/manage-customer" element={<Customers />} />
+                  <Route path="/notifications" element={<Notifications />} />
+                  <Route path="/help" element={<Help />} />
+                  <Route path="/profile" element={<Profile />} />
                 </Route>
-                <Route path="/reports" element={<Reports />} />
-                <Route path="/invoice" element={<Invoice />} />
-                <Route path="/manage-customer" element={<Customers />} />
-                <Route path="/notifications" element={<Notifications />} />
-                <Route path="/help" element={<Help />} />
-                <Route path="/profile" element={<Profile />} />
-              </Route>
-              {/* <Route path="*" element={<PageNotFound />} /> */}
+              )}
+              <Route path="*" element={<PageNotFound />} />
             </Routes>
           </BrowserRouter>
         </InvoiceProvider>

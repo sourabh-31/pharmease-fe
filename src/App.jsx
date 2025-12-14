@@ -42,6 +42,7 @@ function App() {
   const { isAuthenticated } = useAuthContext();
 
   console.log("Auth Status:", isAuthenticated);
+  console.log("Auth Status (type):", typeof isAuthenticated);
 
   const { isStatVisible, isNotificationVisible } = useReportContext();
 

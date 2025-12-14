@@ -1,4 +1,9 @@
+[build]
+  command = "npm run build"  # or your build command
+  publish = "dist"           # or "build" for React
+
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/api/*"
+  to = "https://pharmease-be.netlify.app/api/:splat"
   status = 200
+  force = true

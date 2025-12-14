@@ -6,7 +6,6 @@
   from = "/api/*"
   to = "https://pharmease-be.netlify.app/api/:splat"
   status = 200
-  force = true
 
 [[redirects]]
   from = "/*"

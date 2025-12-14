@@ -100,13 +100,7 @@ function App() {
                   )
                 }
               />
-              <Route
-                element={
-                  <ProtectedRoute>
-                    <AppLayout />
-                  </ProtectedRoute>
-                }
-              >
+              <Route element={<AppLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/inventory" element={<Inventory />}>
                   <Route path="medicines" element={<MedicineTable />} />

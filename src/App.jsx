@@ -100,8 +100,9 @@ function App() {
                   )
                 }
               />
-              <Route path="/dashboard" element={<Dashboard />} />
+              {/* <Route path="/dashboard" element={<Dashboard />} /> */}
               <Route element={<AppLayout />}>
+                <Route index element={<Dashboard />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/inventory" element={<Inventory />}>
                   <Route path="medicines" element={<MedicineTable />} />

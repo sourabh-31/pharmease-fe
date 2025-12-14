@@ -115,7 +115,7 @@ function App() {
                 <Route path="/help" element={<Help />} />
                 <Route path="/profile" element={<Profile />} />
               </Route>
-              <Route path="*" element={<PageNotFound />} />
+              {/* <Route path="*" element={<PageNotFound />} /> */}
             </Routes>
           </BrowserRouter>
         </InvoiceProvider>

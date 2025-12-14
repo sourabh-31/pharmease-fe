@@ -4,11 +4,11 @@ const AuthContext = createContext();
 
 function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    return localStorage.getItem("isAuthPharmEase") === "true";
+    return localStorage.getItem("isAuthPharmEase") || false;
   });
 
   function login() {
-    localStorage.setItem("isAuthPharmEase", "true");
+    localStorage.setItem("isAuthPharmEase", true);
     setIsAuthenticated(true);
   }
 

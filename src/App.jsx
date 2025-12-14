@@ -41,6 +41,8 @@ const queryClient = new QueryClient({
 function App() {
   const { isAuthenticated } = useAuthContext();
 
+  console.log("Auth Status:", isAuthenticated);
+
   const { isStatVisible, isNotificationVisible } = useReportContext();
 
   return (

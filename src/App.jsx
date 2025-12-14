@@ -41,11 +41,6 @@ const queryClient = new QueryClient({
 function App() {
   const { isAuthenticated } = useAuthContext();
 
-  console.log("Auth Status:", typeof localStorage.getItem("isAuthPharmEase"));
-  console.log("Auth Value:", localStorage.getItem("isAuthPharmEase"));
-  console.log("Cookie:", document.cookie);
-  console.log("Current Path:", window.location.pathname);
-
   const { isStatVisible, isNotificationVisible } = useReportContext();
 
   return (

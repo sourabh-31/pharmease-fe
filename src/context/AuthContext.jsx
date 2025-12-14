@@ -7,6 +7,8 @@ function AuthProvider({ children }) {
     return localStorage.getItem("isAuthPharmEase") || false;
   });
 
+  console.log(isAuthenticated);
+
   function login() {
     localStorage.setItem("isAuthPharmEase", true);
     setIsAuthenticated(true);

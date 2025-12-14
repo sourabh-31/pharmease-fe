@@ -8,6 +8,7 @@ function ProtectedRoute({ children }) {
   const navigate = useNavigate();
 
   const cookie = getCookie("isAuthenticated");
+  console.log("isAuthenticated Cookie:", cookie);
   const isAuth = cookie === "true";
 
   const { isLoading } = useUser();

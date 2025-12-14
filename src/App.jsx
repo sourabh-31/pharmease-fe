@@ -100,6 +100,7 @@ function App() {
                   )
                 }
               />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route element={<AppLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/inventory" element={<Inventory />}>
